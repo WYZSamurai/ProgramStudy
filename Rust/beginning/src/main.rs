@@ -6,4 +6,5 @@ fn main() {
     let x = 5;
     //不能用i32与Option<i32>相加
     //println!("{}", i + x);
+    println!("{}", x);
 }
