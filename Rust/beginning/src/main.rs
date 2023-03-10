@@ -1,0 +1,9 @@
+fn main() {
+    let i = Some(14);
+    let s = Some("String");
+    let c = Some('c');
+    let a: Option<i32> = None;
+    let x = 5;
+    //不能用i32与Option<i32>相加
+    //println!("{}", i + x);
+}
