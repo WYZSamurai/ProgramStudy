@@ -1,6 +1,6 @@
 fn main() {
     let i = Some(14);
-    let s = Some("String");
+    let s = Some("Stddeijring");
     let c = Some('d');
     let a: Option<i32> = None;
     let x = 5;
