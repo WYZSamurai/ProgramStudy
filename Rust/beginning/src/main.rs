@@ -8,7 +8,7 @@ fn main() {
     for _i in 0..n {
         let mut s = String::new();
         stdin().read_line(&mut s).unwrap();
-        let a=s;
+        let a = s;
         v.push(a);
     }
 }
