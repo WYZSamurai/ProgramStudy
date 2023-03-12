@@ -4,6 +4,5 @@ using namespace std;
 
 int main() {
     auto a = 1;
-    auto b = 3;
-    auto c = b;
-}
+    printf("jijij\n");
+})
