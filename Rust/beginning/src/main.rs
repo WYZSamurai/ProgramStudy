@@ -1,6 +1,7 @@
 use std::io::*;
 
 fn main() {
+    let _a = 1;
     let mut n = String::new();
     stdin().read_line(&mut n).unwrap();
     let n = n.trim().parse::<i32>().unwrap();
