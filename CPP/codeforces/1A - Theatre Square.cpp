@@ -2,7 +2,7 @@
 using namespace std;
 
 long long fun(auto n, auto a) {
-    auto x=n/a;
+    auto x = n / a;
     auto y = n % a;
     if (y != 0) {
         x += 1;
@@ -12,8 +12,9 @@ long long fun(auto n, auto a) {
 
 int main() {
     long long n, m, a;
-    cin >> n >> >> a;
+    cin >> n >> a;
     auto y = fun(m, a);
+    auto x = fun(m, a);
     cout << x * y << endl;
 
     return 0;
