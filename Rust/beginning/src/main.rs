@@ -1,15 +1,6 @@
-use std::io::*;
-
 fn main() {
-    let _a = 1;
-    let mut n = String::new();
-    stdin().read_line(&mut n).unwrap();
-    let n = n.trim().parse::<i32>().unwrap();
-    let mut v: Vec<String> = Vec::new();
-    for _i in 0..n {
-        let mut s = String::new();
-        stdin().read_line(&mut s).unwrap();
-        let a = s;
-        v.push(a);
-    }
+    let mut a = 1;
+    let b = 3;
+    a = b;
+    println!("{}", a);
 }

@@ -1,5 +1,4 @@
-import sys
 if __name__ == "__main__":
-    a = input()
+    a = 1222
     b = "dewdde"
     print(a)
