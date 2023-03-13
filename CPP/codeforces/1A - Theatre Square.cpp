@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-long long fun(auto n, auto a) {
+long long fun(long long n, long long a) {
     auto x = n / a;
     auto y = n % a;
     if (y != 0) {
