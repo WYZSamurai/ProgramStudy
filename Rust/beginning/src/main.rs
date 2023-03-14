@@ -26,5 +26,4 @@ fn main() {
     let s = nsstring();
     // println!("{:?}", s);
     let mut s1 = s.clone();
-    s1.sort_by(|x,y|)
 }
