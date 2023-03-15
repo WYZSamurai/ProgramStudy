@@ -1,6 +1,25 @@
-mod mio;
+use std::io::*;
+
+fn fio() -> (Vec<String>, usize) {
+    let mut n = String::new();
+    stdin().read_line(&mut n).unwrap();
+    let mut n: usize = n.trim().parse().unwrap();
+    let n1 = n;
+    let mut v: Vec<String> = Vec::new();
+    while n > 0 {
+        let mut v1 = String::new();
+        stdin().read_line(&mut v1).unwrap();
+        v.push(v1.trim().to_string());
+        n -= 1;
+    }
+    (v, n1)
+}
 
 fn main() {
-    let collected_iterator: Vec<i32> = (0..10).collect();
-    println!("Collected (0..10) into: {:?}", collected_iterator);
+    fun();
+}
+
+fn fun() {
+    let (mut v, n) = fio();
+    for i in 0..n {}
 }

@@ -91,3 +91,8 @@ pub fn nnstring() -> Vec<Vec<String>> {
     }
     v
 }
+
+pub fn sort_two(v: &mut Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+    // 二维数组特定列排序
+    let v = v.sort_unstable_by(|x, y| x[2].cmp(&y[2]));
+}
