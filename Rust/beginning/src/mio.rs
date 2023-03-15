@@ -56,7 +56,7 @@ pub fn nni32() -> Vec<Vec<i32>> {
 //     ct
 // }
 // 输入n，后跟n个字符串组
-pub fn nsstring() -> Vec<Vec<String>> {
+pub fn nstring() -> Vec<Vec<String>> {
     // 输入n
     let mut n = String::new();
     stdin().read_line(&mut n).unwrap();
