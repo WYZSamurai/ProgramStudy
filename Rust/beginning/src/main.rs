@@ -20,6 +20,6 @@ fn main() {
 }
 
 fn fun() {
-    let (mut v, n) = fio();
-    for i in 0..n {}
+    let (v, n) = fio();
+    for _i in 0..n {}
 }

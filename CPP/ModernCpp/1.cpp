@@ -14,7 +14,6 @@ vector<vector<int>> fun() {
   }
   return v;
 }
-
 int main() {
   vector<vector<int>> v = fun();
   for (auto &i : v) {
