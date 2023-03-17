@@ -1,3 +1,3 @@
 fn main() {
-    panic!("dde")
+    println!("Hello World!")
 }
