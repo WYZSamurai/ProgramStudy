@@ -2,12 +2,14 @@
 #include <string>
 using namespace std;
 
-struct s {
+struct s
+{
   int a;
   string str;
 };
 
-int main() {
+int main()
+{
   auto a = 10;
   cout << a << endl;
   s s1 = {12, "deded"};
