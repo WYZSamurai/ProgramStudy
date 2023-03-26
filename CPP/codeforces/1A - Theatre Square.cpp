@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-long long fun(long long n, long long a)
+int64_t fun(int64_t n, int64_t a)
 {
   auto x = n / a;
   auto y = n % a;
@@ -14,11 +14,10 @@ long long fun(long long n, long long a)
 
 int main()
 {
-  long long n, m, a;
-  cin >> n >> a;
+  int64_t n, m, a;
+  cin >> n >> m >> a;
   auto y = fun(n, a);
   auto x = fun(m, a);
-  cout << x * y << endl;
-
-  return 0;
+  cout << "需要" << x * y << "块" << endl;
+  system("pause");
 }
