@@ -1,15 +1,6 @@
-fn plus_one(x: Option<i32>) -> Option<i32> {
-    match x {
-        None => None,
-        Some(x) => Some(x + 1),
-    }
-}
+use std::collections::HashMap;
 
 fn main() {
-    let a = Some(21);
-    let b = plus_one(a);
-    let none = plus_one(None);
-    println!("{:#?}", a);
-    println!("{:#?}", b);
-    println!("{:#?}", none);
+    let mut map: HashMap<i32, i32> = HashMap::new();
+    let v = vec![1, 2, 3, 4, 5];
 }
