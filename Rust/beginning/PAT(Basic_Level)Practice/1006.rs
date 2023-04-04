@@ -5,14 +5,14 @@ fn main() {
     let res = fun(&a, &b, &c);
     print!("{}", res);
 }
-
+// io功能
 fn iom() -> i32 {
     let mut n: String = String::new();
     stdin().read_line(&mut n).unwrap();
     let n: i32 = n.trim().parse().unwrap();
     n
 }
-
+// 主功能
 fn fun(a: &i32, b: &i32, c: &i32) -> String {
     let mut res = String::new();
     if *a != 0 {
@@ -32,7 +32,7 @@ fn fun(a: &i32, b: &i32, c: &i32) -> String {
     }
     res
 }
-
+// 分解各个位数
 fn fun1(x: &i32) -> (i32, i32, i32) {
     let a = x / 100;
     let b = (x - a * 100) / 10;
