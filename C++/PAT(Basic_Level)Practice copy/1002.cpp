@@ -1,3 +1,8 @@
+/*
+1.char转int：char-'0'
+2.int转string：to_string(int)
+3.string转int：stoi(string)
+*/
 #include<iostream>
 #include<string>
 #include<vector>

@@ -1,46 +1,38 @@
-/*
-
-1.设置for循环的步长：for i in (0..10).step_by(2)
-2.素数判断
-
-*/
 use std::io::stdin;
 fn main() {
-    let x = iom();
-    let res = f1007(&x);
-    print!("{}", res);
-}
-
-fn iom() -> u32 {
-    let mut n: String = String::new();
-    stdin().read_line(&mut n).unwrap();
-    let n: u32 = n.trim().parse().unwrap();
-    n
-}
-
-fn is_prime(n: &u32) -> bool {
-    if *n <= 1 {
-        return false;
-    }
-    if *n % 2 == 0 && *n != 2 {
-        return false;
-    }
-    for i in (3..=(*n as f32).sqrt() as u32).step_by(2) {
-        if *n % i == 0 {
-            return false;
+    let vec = iom();
+    let mut res: Vec<i32> = Vec::new();
+    let mut tp = 0;
+    for i in 0..vec.len() {
+        if i % 2 == 0 {
+            tp = vec[i];
+        } else {
+            let x = tp * vec[i];
+            if x != 0 {
+                res.push(x);
+                res.push(vec[i] - 1)
+            } else if x == 0 && i == 1 {
+                res.push(0);
+                res.push(0);
+                break;
+            }
         }
     }
-    true
+    for i in 0..res.len() {
+        if i == res.len() - 1 {
+            print!("{}", res[i]);
+        } else {
+            print!("{} ", res[i]);
+        }
+    }
 }
 
-fn f1007(x: &u32) -> u32 {
-    let mut dx: u32 = 3;
-    let mut cx: u32 = 0;
-    for i in (3..*x + 1).step_by(2) {
-        if is_prime(&i) && i - 2 == dx && is_prime(&dx) {
-            cx += 1;
-        }
-        dx = i;
+fn iom() -> Vec<i32> {
+    let mut s = String::new();
+    stdin().read_line(&mut s).unwrap();
+    let mut vec: Vec<i32> = Vec::new();
+    for i in s.trim().split(" ") {
+        vec.push(i.to_string().parse().unwrap());
     }
-    cx
+    vec
 }
