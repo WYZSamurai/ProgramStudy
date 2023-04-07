@@ -11,7 +11,6 @@ fn main() {
         }
     }
 }
-
 fn iom() -> Vec<Vec<i64>> {
     let mut s = String::new();
     stdin().read_line(&mut s).unwrap();
