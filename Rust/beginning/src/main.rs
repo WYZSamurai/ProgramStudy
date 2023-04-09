@@ -1,38 +1,38 @@
 use std::io::stdin;
-
 fn main() {
     let vec = iom();
-    let len = vec.len();
-    for i in 0..len {
-        if fun(&vec[i][0], &vec[i][1], &vec[i][2]) {
-            println!("Case #{}: true", i + 1);
+    let mut res: Vec<i32> = Vec::new();
+    let mut tp = 0;
+    for i in 0..vec.len() {
+        if i % 2 == 0 {
+            tp = vec[i];
         } else {
-            println!("Case #{}: false", i + 1);
+            let x = tp * vec[i];
+            if x != 0 {
+                res.push(x);
+                res.push(vec[i] - 1)
+            } else if x == 0 && i == 1 {
+                res.push(0);
+                res.push(0);
+                break;
+            }
+        }
+    }
+    for i in 0..res.len() {
+        if i == res.len() - 1 {
+            print!("{}", res[i]);
+        } else {
+            print!("{} ", res[i]);
         }
     }
 }
 
-fn iom() -> Vec<Vec<i64>> {
+fn iom() -> Vec<i32> {
     let mut s = String::new();
     stdin().read_line(&mut s).unwrap();
-    let n = s.trim().parse::<i64>().unwrap();
-    let mut vec: Vec<Vec<i64>> = Vec::new();
-    for _i in 0..n {
-        let mut tmp: Vec<i64> = Vec::new();
-        s.clear();
-        stdin().read_line(&mut s).unwrap();
-        for i in s.trim().split(" ") {
-            tmp.push(i.to_string().parse().unwrap());
-        }
-        vec.push(tmp);
+    let mut vec: Vec<i32> = Vec::new();
+    for i in s.trim().split(" ") {
+        vec.push(i.to_string().parse().unwrap());
     }
     vec
-}
-
-fn fun(a: &i64, b: &i64, c: &i64) -> bool {
-    if *a + *b > *c {
-        true
-    } else {
-        false
-    }
 }
