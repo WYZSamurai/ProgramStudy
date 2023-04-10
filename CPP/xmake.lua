@@ -1,8 +1,14 @@
+add_requires("glew")
+add_requires("glfw")
+
 add_rules("mode.debug", "mode.release")
+set_languages("c++23")
 
 target("CPP")
     set_kind("binary")
     add_files("src/*.cpp")
+    set_toolset("cxx", "g++")
+    add_packages("glew","glfw")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
