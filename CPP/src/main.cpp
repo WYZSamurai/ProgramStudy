@@ -1,34 +1,23 @@
-#include <iostream>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+#include<iostream>
+using namespace std;
 
-const int SCR_WIDTH = 1920;
-const int SCR_HEIGHT = 1080;
-
-
-int main(int argc, char** argv) {
-    glfwInit();
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "StudyOpenGL", nullptr, nullptr);
-    if (window == NULL)
-    {
-        std::cerr << "Failed to create GLFW window" << std::endl;
-        glfwTerminate();
-        return -1;
+uint16_t fun(uint16_t& x) {
+    if (x % 2 == 0) {
+        x = x / 2;
     }
-    glfwMakeContextCurrent(window);
-
-    if (glewInit() != GLEW_OK) {
-        std::cerr << "Failed to initalize GLEW" << std::endl;
-        return -1;
+    else {
+        x = (3 * x + 1) / 2;
     }
+    return x;
+}
 
-    while (!glfwWindowShouldClose(window))
-    {
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+int main() {
+    uint16_t x;
+    cin >> x;
+    uint16_t cx = 0;
+    while (x != 1) {
+        x = fun(x);
+        cx += 1;
     }
-
-    glfwDestroyWindow(window);
-    glfwTerminate();
-    return 0;
+    cout << cx << endl;
 }
