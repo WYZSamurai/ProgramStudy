@@ -8,7 +8,8 @@ target("CPP")
     set_kind("binary")
     add_files("src/*.cpp")
     set_toolset("cxx", "g++")
-    add_packages("glew","glfw")
+    add_packages("glew")
+    add_packages("glfw")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io

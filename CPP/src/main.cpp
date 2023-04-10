@@ -2,10 +2,11 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-const int SCR_WIDTH = 500;
-const int SCR_HEIGHT = 500;
+const int SCR_WIDTH = 1920;
+const int SCR_HEIGHT = 1080;
 
-int main() {
+
+int main(int argc, char** argv) {
     glfwInit();
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "StudyOpenGL", nullptr, nullptr);
     if (window == NULL)
