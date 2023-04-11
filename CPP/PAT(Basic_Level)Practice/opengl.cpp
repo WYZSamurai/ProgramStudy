@@ -1,34 +1,42 @@
-#include <iostream>
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <iostream>
+using namespace std;
 
-const int SCR_WIDTH = 1920;
-const int SCR_HEIGHT = 1080;
+void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
-
-int main(int argc, char** argv) {
+int main() {
     glfwInit();
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "StudyOpenGL", nullptr, nullptr);
-    if (window == NULL)
-    {
-        std::cerr << "Failed to create GLFW window" << std::endl;
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
+    if (window == NULL) {
+        cout << "Failed to create GLFW window" << endl;
         glfwTerminate();
         return -1;
     }
     glfwMakeContextCurrent(window);
 
-    if (glewInit() != GLEW_OK) {
-        std::cerr << "Failed to initalize GLEW" << std::endl;
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
 
-    while (!glfwWindowShouldClose(window))
-    {
+    glViewport(0, 0, 800, 600);
+
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+    while (!glfwWindowShouldClose(window)) {
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    glfwDestroyWindow(window);
     glfwTerminate();
     return 0;
+}
+
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+    glViewport(0, 0, width, height);
 }

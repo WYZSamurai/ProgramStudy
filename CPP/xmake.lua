@@ -4,14 +4,17 @@ set_warnings("all")
 set_arch("x64")
 
 add_rules("mode.debug", "mode.release")
-add_requires("glew")
+add_includedirs("C:/Users/Samurai7/scoop/apps/vulkan/current/Include")
+add_linkdirs("C:/Users/Samurai7/scoop/apps/vulkan/current/Lib")
+add_ldflags("-L/C:/Users/Samurai7/scoop/apps/vulkan/current/Lib/vulkan-1.lib", "-lpthread", {force = true})
+add_requires("glad")
 add_requires("glfw")
 add_requires("glm")
 target("CPP")
     set_kind("binary")
     add_files("src/*.cpp")
     set_toolset("cxx", "g++")
-    add_packages("glew","glfw","glm")
+    add_packages("glad","glfw","glm")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
