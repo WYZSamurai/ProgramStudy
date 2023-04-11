@@ -1,9 +1,16 @@
 #include<iostream>
+#include<algorithm>
+#include<vector>
 #include<string>
-using namespace std;
+
+void iom() {
+    std::string s;
+    // 读入行
+    while (true) {
+        getline(std::cin, s);
+    }
+}
 
 int main() {
-    string a = "123";
-    auto x = stoi(a);
-    cout << x << endl;
+    iom();
 }

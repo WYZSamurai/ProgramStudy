@@ -1,17 +1,21 @@
 #include<iostream>
-#include<algorithm>
-#include<vector>
 #include<string>
-using namespace std;
+#include<vector>
 
-void iom() {
-    string s;
-    // 读入行
-    getline(cin, s);
-    auto a = 0;
-    cout << s << endl;
-}
+using std::cout, std::cin, std::endl;
+using std::vector;
 
 int main() {
-    iom();
+    vector<int> v;
+    // C++20 新的通用初始化
+    int x{ 1 };
+    while (getchar() == '\n') {
+        int i;
+        cin >> i;
+        v.push_back(i);
+    }
+    for (auto& i : v) {
+        cout << i;
+    }
+    cout << x << endl;
 }
