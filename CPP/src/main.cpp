@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-    auto a = 2;
+    auto a = "String";
     cout << a << endl;
 }

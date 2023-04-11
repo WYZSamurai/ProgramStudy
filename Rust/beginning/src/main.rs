@@ -1,3 +1,3 @@
-use std::io::stdin;
-
-fn main() {}
+fn main() {
+    println!("huh");
+}
