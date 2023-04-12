@@ -1,11 +1,3 @@
-/*
-
-用到的方法：
-1. Vector查询指定元素是否存在 vec.contains()
-2. Vector只保留制定规则的元素 vec.retain()
-3. HashMap查询指定key是否存在 map.contains_key()
-
-*/
 use std::io::stdin;
 fn main() {
     //完成输入功能

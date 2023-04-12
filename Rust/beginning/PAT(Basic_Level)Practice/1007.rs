@@ -1,9 +1,3 @@
-/*
-
-1.设置for循环的步长：for i in (0..10).step_by(2)
-2.素数判断
-
-*/
 use std::io::stdin;
 fn main() {
     let x = iom();

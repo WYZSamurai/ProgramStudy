@@ -1,7 +1,3 @@
-/*
-String遍历：for i in str.chars()
-获取String中的特定位置元素：str.chars().nth(index)
-*/
 use std::io::stdin;
 fn main() {
     let mut s = iom();
