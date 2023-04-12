@@ -8,7 +8,11 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn max_area(height: Vec<i32>) -> i32 {
-        let mut result = 1;
+        // result需要知道两个数组的index，且需要获取较低的高度
+        let mut result = 0;
+        // list保存两条线的index和height
+        let mut list: Vec<Vec<i32>> = Vec::new();
+        let len = height.len();
         result
     }
 }
