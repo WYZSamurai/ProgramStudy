@@ -1,8 +1,9 @@
 #include<iostream>
 #include<string>
+#include<vector>
 using namespace std;
 
-constexpr string_view day[]{ "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN" };
+const string day[] = { "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN" };
 
 int main() {
     string str1;
@@ -13,8 +14,9 @@ int main() {
     cin >> str2;
     cin >> str3;
     cin >> str4;
-    auto first{ 0 };
-    for (size_t i{ 0 }; i < str1.length(); i++) {
+    auto first = 0;
+    auto i = str1.length();
+    for (i = 0; i < str1.length(); i++) {
         if (str1[i] == str2[i] && (str1[i] >= 'A' && str1[i] <= 'G')) {
             cout << day[str1[i] - 'A'] << ' ';
             first = i;
@@ -22,7 +24,7 @@ int main() {
         }
     }
 
-    for (size_t i{ first + 1 }; i < str1.length(); i++) {
+    for (i = first + 1; i < str1.length(); i++) {
         if (str1[i] == str2[i]) {
             if (str1[i] >= '0' && str1[i] <= '9') {
                 cout << '0' << str1[i] - '0' << ':';
@@ -35,7 +37,7 @@ int main() {
         }
     }
 
-    for (size_t i{ 0 }; i < str3.length(); i++) {
+    for (i = 0; i < str3.length(); i++) {
         if (str3[i] == str4[i] && ((str3[i] >= 'A' && str3[i] <= 'Z') || (str3[i] >= 'a' && str3[i] <= 'z'))) {
             if (i < 10) {
                 cout << '0' << i;
@@ -46,4 +48,6 @@ int main() {
             break;
         }
     }
+
+    return 0;
 }
