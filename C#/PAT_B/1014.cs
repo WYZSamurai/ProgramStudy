@@ -2,7 +2,7 @@ using System;
 class P_1014
 {
     static string[] day = { "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN" };
-    static void Main()
+    static void p1014()
     {
         // 输入4个变量
         var s1 = Console.ReadLine();
