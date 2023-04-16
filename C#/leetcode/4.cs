@@ -7,7 +7,7 @@ public class Solution
 
         return 0.0;
     }
-    static void Main()
+    static void L4()
     {
         var s = Console.ReadLine();
         List<Int32> v = new List<int>();
