@@ -42,7 +42,7 @@ if __name__ == "__main__":
         )
     )
     fig.update_layout(
-        title="全波振子",
+        title="全波振子、半波振子、电流元E面图",
         showlegend=False,
         polar=dict(),
     )
