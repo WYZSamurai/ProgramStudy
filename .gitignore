@@ -230,6 +230,3 @@ cython_debug/
 
 
 CPP/xmake.lua
-
-Godot/Test/.godot/
-Godot/Test/sences/
