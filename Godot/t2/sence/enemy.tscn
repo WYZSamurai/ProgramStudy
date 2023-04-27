@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://die7x410uuoxw"]
+
+[ext_resource type="Script" path="res://code/enemy.cs" id="1_dkxix"]
+[ext_resource type="Texture2D" uid="uid://bs74lh624rujw" path="res://asset/art/enemyFlyingAlt_1.png" id="1_klfh1"]
+[ext_resource type="Texture2D" uid="uid://c5i0wuhok8w32" path="res://asset/art/enemyFlyingAlt_2.png" id="2_l8xxo"]
+[ext_resource type="Texture2D" uid="uid://bw53sd1acynl2" path="res://asset/art/enemySwimming_1.png" id="3_kvsdh"]
+[ext_resource type="Texture2D" uid="uid://cy1weksq87ndf" path="res://asset/art/enemySwimming_2.png" id="4_ksfah"]
+[ext_resource type="Texture2D" uid="uid://rxh0trimort8" path="res://asset/art/enemyWalking_1.png" id="5_dda57"]
+[ext_resource type="Texture2D" uid="uid://c5uxqfxsjgq5t" path="res://asset/art/enemyWalking_2.png" id="6_o7icl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dmw3"]
+radius = 27.0
+height = 88.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ga1ry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_klfh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_l8xxo")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kvsdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ksfah")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_dda57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o7icl")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[node name="Enemy" type="RigidBody2D"]
+position = Vector2(827, 367)
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_dkxix")
+metadata/_edit_group_ = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7dmw3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ga1ry")
+animation = &"walk"
+frame_progress = 0.361357
