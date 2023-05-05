@@ -11,6 +11,7 @@
 *.pdf
 *.bcf
 *.xml
+*.bbl
 
 # exe
 *.ilk
