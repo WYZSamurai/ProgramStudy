@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c5uxqfxsjgq5t" path="res://asset/art/enemyWalking_2.png" id="6_o7icl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dmw3"]
-radius = 27.0
+radius = 32.0
 height = 88.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ga1ry"]
@@ -64,4 +64,5 @@ shape = SubResource("CapsuleShape2D_7dmw3")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ga1ry")
 animation = &"walk"
-frame_progress = 0.361357
+frame = 1
+frame_progress = 0.208036

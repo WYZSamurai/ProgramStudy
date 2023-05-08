@@ -15,7 +15,7 @@ public partial class player : Area2D
 
     public override void _Ready()
     {
-        Console.WriteLine("player准备就绪");
+        GD.Print("player准备就绪");
         // 返回屏幕边界
         ScreenSize = GetViewportRect().Size;
     }

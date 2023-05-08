@@ -8,6 +8,19 @@
 script = ExtResource("1_d0ysd")
 
 [node name="Player" parent="." instance=ExtResource("2_o1lyu")]
+position = Vector2(946, 388)
 
 [node name="Enemy" parent="." instance=ExtResource("3_hty8a")]
 position = Vector2(535, 337)
+
+[node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(731, 280)
