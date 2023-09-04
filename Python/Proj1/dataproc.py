@@ -15,12 +15,13 @@ class ReadData:
     def mag(self, i=1):
         with open(path+"mag"+str(i)+".csv", mode="r", encoding="utf-8") as csvfile:
             reader = csv.reader(csvfile)
-            # 设置计数器
+            # 设置跳过的行数
             cout = -1
             for data in reader:
                 if cout == -1:
                     cout += 1
                     continue
+                # 设置读取data的列
                 self.mag_data[cout] = data[1]
                 cout += 1
         return self.mag_data
@@ -29,12 +30,13 @@ class ReadData:
     def ang(self, i=1):
         with open(path+"ang_deg"+str(i)+".csv", mode="r", encoding="utf-8") as csvfile:
             reader = csv.reader(csvfile)
-            # 设置计数器
+            # 设置跳过的行数
             cout = -1
             for data in reader:
                 if cout == -1:
                     cout += 1
                     continue
+                # 设置读取data的列
                 self.ang_data[cout] = data[1]
                 cout += 1
         return self.ang_data
