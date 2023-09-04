@@ -2,14 +2,14 @@ import numpy as np
 import plotly.graph_objects as go
 import csv
 
-path = "C:/Users/wyz96/Downloads/Gain Plot 2.csv"
+path = "C:/Users/wyz96/Downloads/EBG_Gain.csv"
 
 
 class ReadData:
     def __init__(self) -> None:
-        self.theta = np.zeros(181,)
-        self.phi0_gain = np.zeros(181,)
-        self.phi90_gain = np.zeros(181,)
+        self.theta = np.zeros(361,)
+        self.phi0_gain = np.zeros(361,)
+        self.phi90_gain = np.zeros(361,)
 
     def read(self):
         with open(path, mode="r", encoding="utf-8") as csvfile:
@@ -23,12 +23,12 @@ class ReadData:
                     # print(data)
                     continue
                 # 设置读取data的列
-                if cout < 181:
+                if cout < 361:
                     self.theta[cout] = data[3]
                     self.phi0_gain[cout] = data[4]
                     cout += 1
                 else:
-                    self.phi90_gain[cout-181] = data[4]
+                    self.phi90_gain[cout-361] = data[4]
                     cout += 1
         return self.theta, self.phi0_gain, self.phi90_gain
 
