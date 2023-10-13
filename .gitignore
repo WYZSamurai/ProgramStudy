@@ -1,5 +1,6 @@
 # vscode
 .vscode/
+24-hori-scan/
 *.code-workspace
 *.vim
 
