@@ -36,12 +36,13 @@ class Network(nn.Module):
 if __name__ == "__main__":
     # pass
 
-    # m = nn.ReLU()
-    # input = torch.randn(2)
-    # print(input)
-    # output = m(input)
-    # print(output)
+    # 验证ReLU函数
+    m = nn.ReLU()
+    input = torch.randn(2)
+    print(input)
+    output = m(input)
+    print(output)
 
-    # 创建Model实例
-    model = Network().to(device=device)
-    print(model)
+    # Model参数显示
+    # model = Network().to(device=device)
+    # print(model)

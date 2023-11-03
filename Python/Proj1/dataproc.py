@@ -2,7 +2,7 @@ import numpy as np
 import csv
 
 
-path = "C:/Users/wyz96/Doc/Term1/24元/net/24_hori/"
+path = "C:/Users/wyz96/Doc/Term1/23-08/MLP/24元/net/24_hori/"
 
 
 class ReadData:
@@ -26,7 +26,7 @@ class ReadData:
                 cout += 1
         return self.mag_data
 
-    # 读入该单元角度
+    # 读入该单元相位
     def ang(self, i=1):
         with open(path+"ang_deg"+str(i)+".csv", mode="r", encoding="utf-8") as csvfile:
             reader = csv.reader(csvfile)
@@ -43,7 +43,7 @@ class ReadData:
 
 
 class MakeMatrix:
-    # 创建振幅和角度矩阵
+    # 创建振幅和相位矩阵
     def __init__(self) -> None:
         self.mag = np.zeros((24, 181))
         self.ang = np.zeros((24, 181))
@@ -71,19 +71,17 @@ class Contouring:
         # 旁瓣电平为-30~-20db
         self.sll = np.random.randint(20, 31, size=(batch, 1))
         wd = self.sll
-        # sll的shape为(batch,181)，表示方向图每一度的电平大小
+        # sll的shape为(batch,181)，表示方向图每一度的电平大小，创建(batch,181)为大小的-1矩阵与sll相乘
         self.sll = self.sll*-1*np.ones((batch, 181), dtype=np.float64)
-        # 赋形
+        # 将sll以主瓣指向为中心wd为宽度设为0dB
         for i in range(batch):
-            self.sll[i,
-                     self.theta_0[i]-1-wd[i][0]:self.theta_0[i]+wd[i][0]] = 0
+            self.sll[i, self.theta_0[i]-1-wd[i]
+                     [0]:self.theta_0[i]+wd[i][0]] = 0
         return self.theta_0, self.sll
 
 
 if __name__ == "__main__":
     # pass
 
-    a, b = Contouring().func(3)
-    print(a.shape, b.shape)
-    print(a)
-    print(b)
+    a, b = Contouring().func(1)
+    print(a, b)
