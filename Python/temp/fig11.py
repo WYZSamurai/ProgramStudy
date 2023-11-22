@@ -1,10 +1,29 @@
 import numpy as np
 import plotly.graph_objects as go
+import csv
+
+
+def read(path="", skip=1, col=2):
+    data = []
+    # 按行扫描，每列都循环一次，共col次
+    for i in range(col):
+        with open(path, mode="r", encoding="utf-8") as csvfile:
+            temp = []
+            cout = -skip
+            # 设置扫描器
+            reader = csv.reader(csvfile)
+            # d为逐行扫描的数据
+            for d in reader:
+                if cout < 0:
+                    cout += 1
+                    continue
+                temp.append(float(d[i]))
+            data.append(temp)
+    return data
 
 
 def prin(data: np.array):
     fig = go.Figure()
-
     fig.add_trace(
         go.Scatter(
             x=data[0],
@@ -16,12 +35,21 @@ def prin(data: np.array):
                 # 设置虚线
                 # dash='5px',
             ),
-            # 设置节点形状
-            marker=dict(
-                symbol='square',
-            ),
             # 次坐标轴
             # yaxis='y2',
+        )
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=data[2],
+            y=data[3],
+            name="Phase Change Curve",
+            line=dict(
+                color='red',
+                width=3,
+                dash='5px',
+            ),
+            yaxis='y2'
         )
     )
     # 添加顶部黑线
@@ -33,7 +61,6 @@ def prin(data: np.array):
         )
     )
     fig.update_layout(
-        # 画布标题
         # title="Second Curve",
         # title_font=dict(
         #     size=24,
@@ -46,7 +73,6 @@ def prin(data: np.array):
         # 画布大小
         width=1200,
         height=800,
-        template='simple_white',
 
         xaxis=dict(
             # 坐标轴显示
@@ -61,10 +87,6 @@ def prin(data: np.array):
                 size=24,
                 family='Times New Roman',
             ),
-            # 刻度
-            # ticks='outside',
-            # ticklen=10,
-            # tickwidth=3,
             # 设置刻度的字体大小及颜色
             # tickfont=dict(
             #     color='rgb(148, 103, 189)',
@@ -90,6 +112,38 @@ def prin(data: np.array):
             showticklabels=False,
         ),
 
+        yaxis=dict(
+            title="S11(dB)",
+            titlefont=dict(
+                size=24,
+                family='Times New Roman',
+            ),
+            showline=True,
+            linecolor='black',
+            linewidth=3,
+            showticklabels=True,
+            autorange=False,
+            range=[-10, 0],
+            type='linear',
+        ),
+        yaxis2=dict(
+            overlaying='y',
+            side='right',
+            title='S11phase(deg)',
+            titlefont=dict(
+                family='Times New Roman',
+                color='black',
+                size=24
+            ),
+            showline=True,
+            linecolor='black',
+            linewidth=3,
+            showticklabels=True,
+            autorange=False,
+            range=[-800, 0],
+            type='linear',
+        ),
+
         # 设置图例
         legend=dict(
             x=0.7,
@@ -107,3 +161,21 @@ def prin(data: np.array):
         showlegend=True,
     )
     fig.show()
+
+
+if __name__ == "__main__":
+
+    # 设置文件路径
+    path1 = "C:/Users/wyz96/Downloads/图6-5(a).csv"
+    path2 = "C:/Users/wyz96/Downloads/图6-11(d).csv"
+    # 设置跳过的行数
+    skip = 1
+    # 设置读取的列数
+    col = 2
+
+    data = []
+    data1 = read(path1, 1, 2)
+    data2 = read(path2, 1, 2)
+    data = np.array(data1+data2)
+
+    prin(data)

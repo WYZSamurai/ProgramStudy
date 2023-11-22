@@ -1,23 +1,23 @@
-import numpy as np
 import csv
 
-path = "C:/Users/wyz96/Doc/Term1/24元/net/24_hori/"
 
-
-class ReadData:
-    def __init__(self) -> None:
-        self.data = np.zeros(181,)
-
-    def read(self, path):
+def read(path="", skip=1, col=2):
+    # 设置文件路径
+    # 设置跳过的行数
+    # 设置读取的列数
+    data = []
+    # 按行扫描，每列都循环一次，共col次
+    for i in range(col):
         with open(path, mode="r", encoding="utf-8") as csvfile:
+            temp = []
+            cout = -skip
+            # 设置扫描器
             reader = csv.reader(csvfile)
-            # 设置跳过的行数
-            cout = -1
-            for data in reader:
-                if cout == -1:
+            # d为逐行扫描的数据
+            for d in reader:
+                if cout < 0:
                     cout += 1
                     continue
-                # 设置读取data的列
-                self.data[cout] = data[1]
-                cout += 1
-        return self.data
+                temp.append(float(d[i]))
+            data.append(temp)
+    return data
