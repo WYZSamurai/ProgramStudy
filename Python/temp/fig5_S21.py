@@ -31,6 +31,10 @@ def prin(data: np.array):
                 color='black',
                 width=3,
             ),
+            marker=dict(
+                symbol=0,
+                size=10,
+            ),
         )
     )
     fig.add_trace(
@@ -41,6 +45,10 @@ def prin(data: np.array):
             line=dict(
                 color='red',
                 width=3,
+            ),
+            marker=dict(
+                symbol=1,
+                size=10,
             ),
         )
     )
@@ -53,6 +61,10 @@ def prin(data: np.array):
                 color='blue',
                 width=3,
             ),
+            marker=dict(
+                symbol=2,
+                size=10,
+            ),
         )
     )
     fig.add_trace(
@@ -63,6 +75,10 @@ def prin(data: np.array):
             line=dict(
                 color='green',
                 width=3,
+            ),
+            marker=dict(
+                symbol=3,
+                size=10,
             ),
         )
     )
@@ -75,6 +91,10 @@ def prin(data: np.array):
                 color='purple',
                 width=3,
             ),
+            marker=dict(
+                symbol=4,
+                size=10,
+            ),
         )
     )
     fig.add_trace(
@@ -86,6 +106,10 @@ def prin(data: np.array):
                 color='black',
                 width=3,
                 dash='5px',
+            ),
+            marker=dict(
+                symbol=0,
+                size=10,
             ),
             yaxis='y2',
         )
@@ -100,6 +124,10 @@ def prin(data: np.array):
                 width=3,
                 dash='5px',
             ),
+            marker=dict(
+                symbol=1,
+                size=10,
+            ),
             yaxis='y2',
         )
     )
@@ -112,6 +140,10 @@ def prin(data: np.array):
                 color='blue',
                 width=3,
                 dash='5px',
+            ),
+            marker=dict(
+                symbol=2,
+                size=10,
             ),
             yaxis='y2',
         )
@@ -126,6 +158,10 @@ def prin(data: np.array):
                 width=3,
                 dash='5px',
             ),
+            marker=dict(
+                symbol=3,
+                size=10,
+            ),
             yaxis='y2',
         )
     )
@@ -139,6 +175,10 @@ def prin(data: np.array):
                 width=3,
                 dash='5px',
             ),
+            marker=dict(
+                symbol=4,
+                size=10,
+            ),
             yaxis='y2',
         )
     )
@@ -149,83 +189,103 @@ def prin(data: np.array):
             xaxis='x2',
         )
     )
+    axistitlefont = dict(
+        color='black',
+        family='Times New Roman',
+        size=80,
+    )
+    tickfont = dict(
+        color='black',
+        family='Times New Roman',
+        size=70,
+    )
+    legendfont = dict(
+        color='black',
+        family='Times New Roman',
+        size=70,
+    )
+    margin = dict(
+        l=250,
+        r=600,
+        t=50,
+        b=200,
+    )
     fig.update_layout(
-        template='simple_white',
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)',
-        width=1200,
-        height=800,
+        template='none',
+        autosize=True,
+        margin=margin,
+        paper_bgcolor='white',
+        plot_bgcolor='white',
+        # width=1200,
+        # height=800,
         xaxis=dict(
+            title="<b>L(mm)</b>",
+            titlefont=axistitlefont,
             showline=True,
             linecolor='black',
             linewidth=3,
-            title="L(mm)",
-            titlefont=dict(
-                size=24,
-                family='Times New Roman',
-            ),
+            showgrid=False,
             autorange=False,
             range=[7, 14],
             type='linear',
+            ticks='outside',
+            ticklen=10,
+            tickwidth=3,
+            tickfont=tickfont,
         ),
         xaxis2=dict(
             overlaying='x',
             side='top',
             showline=True,
+            showgrid=False,
             linecolor='black',
             linewidth=1,
+            ticks='',
             showticklabels=False,
+            zeroline=False,
         ),
         yaxis=dict(
-            title="S21(dB)",
-            titlefont=dict(
-                size=24,
-                family='Times New Roman',
-            ),
+            title="<b>S<sub>21</sub>(dB)</b>",
+            showgrid=False,
+            titlefont=axistitlefont,
             showline=True,
             linecolor='black',
             linewidth=3,
-            showticklabels=True,
             autorange=False,
             range=[-40, 0],
             type='linear',
+            ticks='outside',
+            ticklen=10,
+            tickwidth=3,
+            tickfont=tickfont,
+            showticklabels=True,
         ),
         yaxis2=dict(
             overlaying='y',
             side='right',
-            title='S11phase(deg)',
-            titlefont=dict(
-                family='Times New Roman',
-                color='black',
-                size=24
-            ),
-            tickfont=dict(
-                family='Times New Roman',
-                # size=24,
-            ),
+            title='<b>S<sub>21</sub>phase(deg)</b>',
+            titlefont=axistitlefont,
+            showgrid=False,
             showline=True,
+            zeroline=False,
             linecolor='black',
             linewidth=3,
-            showticklabels=True,
             autorange=False,
             range=[-400, 200],
             type='linear',
+            tickfont=tickfont,
+            ticks='outside',
+            ticklen=10,
+            tickwidth=3,
+            showticklabels=True,
         ),
-
-        # 设置图例
         legend=dict(
-            x=1.1,
+            x=1.2,
             y=0,
-            font=dict(
-                family='Times New Roman',
-                size=18,
-                color="black",
-            ),
-            # bgcolor='#E2E2E2',
+            font=legendfont,
             bordercolor='black',
             borderwidth=2
         ),
-        # 设置不显示图例
         showlegend=True,
     )
     fig.show()
@@ -233,14 +293,10 @@ def prin(data: np.array):
 
 if __name__ == "__main__":
 
-    # 设置文件路径
-    path1 = "C:/Users/wyz96/Downloads/图6-5(a).csv"
-    path2 = "C:/Users/wyz96/Downloads/图6-5(b).csv"
-    # 设置跳过的行数
+    path1 = "C:/Users/wyz96/Doc/Term1/2309/论文翻译/袁怀林软硬件验收/1学位论文/学位论文中的数据图表源文件/图6-5(a).csv"
+    path2 = "C:/Users/wyz96/Doc/Term1/2309/论文翻译/袁怀林软硬件验收/1学位论文/学位论文中的数据图表源文件/图6-5(b).csv"
     skip = 0
-    # 设置读取的列数
     col = 6
-
     data1 = read(path1, skip, col)
     data2 = read(path2, skip, col)
     data = np.array(data1+data2)

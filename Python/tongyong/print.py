@@ -4,12 +4,12 @@ import plotly.graph_objects as go
 
 def prin(data: np.array):
     fig = go.Figure()
-
     fig.add_trace(
         go.Scatter(
             x=data[0],
             y=data[1],
-            name="Amplitude Change Curve",
+            # 下标
+            name="x<sub>2</sub>",
             line=dict(
                 color='blue',
                 width=3,
@@ -32,44 +32,65 @@ def prin(data: np.array):
             xaxis='x2',
         )
     )
+    # 设置画布字体、坐标轴字体、刻度字体、图例字体
+    titlefont = dict(
+        size=24,
+        family="Times New Roman"
+    )
+    axistitlefont = dict(
+        color='red',
+        size=24,
+        family='Times New Roman',
+    )
+    tickfont = dict(
+        color='rgb(148, 103, 189)',
+        size=20,
+        family='Times New Roman',
+    )
+    legendfont = dict(
+        family='Times New Roman',
+        size=18,
+        color="black",
+    )
+    margin = dict(
+        l=150,
+        r=100,
+        t=100,
+        b=100,
+    )
     fig.update_layout(
         # 画布标题
-        # title="Second Curve",
-        # title_font=dict(
-        #     size=24,
-        #     family="Times New Roman"
-        # ),
+        title="Second Curve",
+        title_font=titlefont,
         # 画布背景
-        paper_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='white',
         # 图标背景
-        plot_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='white',
         # 画布大小
-        width=1200,
-        height=800,
+        autosize=True,
+        margin=margin,
+        # width=1200,
+        # height=800,
         template='simple_white',
-
         xaxis=dict(
             # 坐标轴显示
             showline=True,
             linecolor='black',
             linewidth=3,
             # 设置坐标轴的标签
-            title="L(mm)",
+            title="$L_2$(mm)",
             # 设置坐标轴标签的字体及颜色
-            titlefont=dict(
-                # color='black',
-                size=24,
-                family='Times New Roman',
-            ),
+            titlefont=axistitlefont,
+            # 设置是否显示网格线
+            showgrid=True,
+            # 设置是否显示零线
+            zeroline=True,
             # 刻度
             # ticks='outside',
             # ticklen=10,
             # tickwidth=3,
             # 设置刻度的字体大小及颜色
-            # tickfont=dict(
-            #     color='rgb(148, 103, 189)',
-            #     size=24,
-            # ),
+            tickfont=tickfont,
             # 设置是否显示刻度
             # showticklabels=False,
             # 设置刻度旋转的角度
@@ -89,16 +110,11 @@ def prin(data: np.array):
             linewidth=1,
             showticklabels=False,
         ),
-
         # 设置图例
         legend=dict(
             x=0.7,
             y=0.6,
-            font=dict(
-                family='Times New Roman',
-                size=18,
-                color="black",
-            ),
+            font=legendfont,
             # bgcolor='#E2E2E2',
             bordercolor='black',
             borderwidth=2
