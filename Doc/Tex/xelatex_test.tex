@@ -1,34 +1,22 @@
-% \documentclass{article}
-% \usepackage{xdufont}
-% \xdusetup{}
-% \begin{document}
-% 宋体\textbf{加粗}\textsl{加斜}
-% \textsf{黑体}\textbf{\textsf{加粗}}\textsl{\textsf{加斜}}
-% \end{document}
+\documentclass[12pt, a4paper, oneside]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
 
-% \documentclass{xduugtp}
-% \xdusetup{}
-% \begin{document}
-% \section{论文名称及项目来源}
-% \section{研究目的和意义}
-% \section{国内外研究现状和发展趋势}
-% \section{主要研究内容、要解决的问题及本文的初步方案}
-% \section{工作的主要阶段、进度和完成时间}
-% \section{已进行的前期准备工作}
-% \section{指导教师意见}
-% \section{学院审核意见}
-% \end{document}
-
-% \documentclass{xduugthesis}
-% \xdusetup{}
-% \begin{document}
-% \chapter{欢迎}
-% 使用\LaTeX{}!
-% \end{document}
-
-\documentclass{xdupgthesis}
-\xdusetup{}
+\title{多模态机器学习}
+\author{汪毅桢}
+\date{\today}
 \begin{document}
-\chapter{欢迎}
-使用\LaTeX{}！
+%使title、author、date生效
+\maketitle
+\newpage
+\section{前言}
+我是第一段.
+\subsection{abaaba}
+我是第二段.
+
+我是第二段.\cite{1}
+\newpage
+\begin{thebibliography}{99}
+    \bibitem{1}A. Gandhi, K. Adhvaryu, S. Poria, E. Cambria, and A. Hussain, “Multimodal sentiment analysis: A systematic review of history, datasets, multimodal fusion methods, applications, challenges and future directions,” Information Fusion, vol. 91, pp. 424–444, Mar. 2023, doi: https://doi.org/10.1016/j.inffus.2022.09.025.
+\end{thebibliography}
 \end{document}
