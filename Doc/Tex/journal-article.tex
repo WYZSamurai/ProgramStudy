@@ -1,0 +1,466 @@
+\documentclass[USenglish]{article}	
+% for 2-column layout use \documentclass[USenglish,twocolumn]{article}
+
+\usepackage[utf8]{inputenc}				%(only for the pdftex engine)
+%\RequirePackage[no-math]{fontspec}[2017/03/31]%(only for the luatex or the xetex engine)
+\usepackage[big,online]{dgruyter}	%values: small,big | online,print,work
+\usepackage{lmodern} 
+\usepackage{microtype}
+\usepackage{subfigure}
+\usepackage[numbers,square,sort&compress]{natbib}
+
+
+% New theorem-like environments will be introduced by using the commands \theoremstyle and \newtheorem.
+% Please note that the environments proof and definition are already defined within dgryuter.sty.
+\theoremstyle{dgthm}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{assertion}{Assertion}
+\newtheorem{result}{Result}
+\newtheorem{conclusion}{Conclusion}
+
+\theoremstyle{dgdef}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\begin{document}
+
+	
+%%%--------------------------------------------%%%
+	\articletype{Research Article}
+	\received{Month	DD, YYYY}
+	\revised{Month	DD, YYYY}
+  \accepted{Month	DD, YYYY}
+  \journalname{De~Gruyter~Journal}
+  \journalyear{YYYY}
+  \journalvolume{XX}
+  \journalissue{X}
+  \startpage{1}
+  \aop
+  \DOI{10.1515/sample-YYYY-XXXX}
+%%%--------------------------------------------%%%
+
+\title{Design of low RCS and conformal array antenna based on AMC}
+\runningtitle{Short title}
+%\subtitle{Insert subtitle if needed}
+
+\author*[1]{First Author}
+%\ use * to mark the author as the corresponding author
+\author[2]{Second Author}
+\author[2]{Third Author} 
+\runningauthor{F.~Author et al.}
+\affil[1]{\protect\raggedright 
+Institution, Department, City, Country of first author, e-mail: author\_one@xx.yz}
+\affil[2]{\protect\raggedright 
+Institution, Department, City, Country of second author and third author, e-mail: author\_two@xx.yz, author\_three@xx.yz}
+	
+%\communicated{...}
+%\dedication{...}
+	
+\abstract{A conformal array antenna design based on AMC and combined radiation and scattering is presented in this article. In order to meet the low scattering requirement of cylindrical conformal scanning array antenna, two kinds of broadband antenna elements are designed by taking advantage of the axial coplanar characteristics of cylindrical surface. Considering the truncation effect of the array and the requirement of AMC periodicity, a 6$\times$6 cylindrical conformal array is designed. The central 4$\times$4 element is active element and the edge element is passive element. The array has good beam scanning ability in the pitch and azimuth plane of the cylinder. The test results show that the array has the scanning ability above $\pm30^\circ$ on the azimuth plane and $\pm40^\circ$ on the pitch plane in the range of 9 GHz--11 GHz. At the same time, more than 6dB RCS reduction is achieved for the horizontally and vertically polarized incident waves in the frequency bands of 8.15 GHz--13.45 GHz and 7.65 GHz--14.05 GHz, respectively.}
+
+\keywords{AMC(artificial magnetic conductors), array antenna, conformal antenna, low RCS(Radar Cross section), combined radiation and scattering.}
+
+\maketitle
+	
+	
+\section{Introduction} 
+
+In order to ensure the aerodynamic performance and survivability of the aircraft, the antenna system needs to be conformal with the aircraft and to achieve low scattering characteristics while the radiation ability. With the increasing status of stealth technology in modern warfare, and the antenna itself is the strong scattering source on the aircraft platform, so the reduction of the RCS (Radar Cross Section) of the conformal antenna has important military significance and research value. In practical engineering, the profile height of antenna system is strictly limited. Although the traditional method of low scattering by adding overlay structure has good effect, its practicability is limited by increasing the profile of antenna system.
+
+
+The research on curved conformal array antenna is increasing every year. Some scholars have done a lot of research on ultra-wideband wide-angle scanning conformal antenna array \cite{p1,p2,p3,p4,p5,p6}, but they have not noticed the reduction of antenna RCS, which is not suitable for conformal with aircraft. Many scholars focus their research mainly on the preservation of radiation performance and the coverage of array beam \cite{p7,p8,p9,p10,p11,p12,p13}.There are few extensions to the antenna performance, especially in the low-scattering domain. So how to achieve the low scattering performance of conformal microstrip array antenna is the main content of this paper.
+
+
+At present, the reduction of antenna RCS mainly depends on the loading of electromagnetic absorbing materials and the modification of antenna. The loading of the material will inevitably bring electromagnetic loss, and greatly increase the antenna profile \cite{p14,p15}. Antenna modification can achieve RCS reduction by cutting off the resonant current on the surface of the patch. However, antenna modification cannot destroy the radiation current at the same time, so it is difficult to achieve a grate reduction of RCS within the broadband \cite{p16,p17}. However, electromagnetic metasurfaces that can modulate phase or rotate polarize bring new possibilities for the design of low scattering antennas \cite{p18}.
+
+
+AMC (Artificial Magnetic Conductor) is a kind of periodic electromagnetic metamaterials. Through artificial design of AMC unit structure and arrangement, the amplitude, phase and polarization of electromagnetic wave can be controlled \cite{p19,p20}. In the latest research, it is found that the scattering energy of electromagnetic wave can be redirected by AMC, phase gradient hypersurface and polarized rotating surface, and then the scattering energy can be eliminated by using checkerboard distribution. At the same time, these electromagnetic metasurfaces are similar in form to microstrip antennas, and can be excited to work as antennas, thus realizing the design of integrated radiation-scattering antennas without adding additional structures. Many scholars have adopted this design method, and have done a lot of work in broadening the low scattering band of antennas, but the application of conformal antenna arrays has not been considered \cite{p21,p22,p23,p24,p25}.  In this paper, the integrated radiation scattering technique is applied to the conformal antenna array, and the low scattering bandwidth is broadened while the radiation performance of the array is guaranteed.
+
+
+In this article, an integrated conformal array antenna design method based on artificial magnetic conductor is proposed, which extends the application of artificial magnetic conductor low scattering technique in non-plane conditions. Firstly, two kinds of wideband antenna elements are designed to meet the low scattering requirements of cylindrical conformal scanning array antennas. The axial symmetry arrangement of the two elements can realize the low scattering characteristic of reflection phase cancellation. Considering the truncation effect of the array and the requirement of AMC periodicity, a 6$\times$6 cylindrical conformal array is designed. The central 4$\times$4 element is active element and the edge element is passive element. The array has good beam scanning ability in the pitch and azimuth plane of the cylinder. The test results show that the array has broadband radiation characteristics and low scattering characteristics covering the X-band. A cylindrical conformal low scattering scanning array antenna is designed. The array has 23.9\% relative working bandwidth, good beam scanning ability and low scattering characteristics covering the whole X-band.
+
+
+\section{Design and analysis of antenna} 
+The principle of reflection phase cancellation is the reason why AMC can achieve RCS reduction: When the incident wave irradiates two adjacent AMC fronts, the reflected waves generated by them are equal in amplitude and $180^\circ$ in phase, thus achieving perfect reflection phase cancellation. In other words, the RCS reduction can be realized by placing the AMC array under x polarization and y polarization in the chessboard arrangement as shown in Figure 1 for $180^\circ$ reflection phase difference. Generally, the $180^\circ$ phase difference between two AMC arrays can be realized by constructing two multi-point resonant AMC units and interleaving their resonant frequency points.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig1}
+	\caption{Chessboard arrangement AMC.}
+\end{figure}
+
+
+We observe the electric field intensity distribution at the resonance point of the square patch when the y-polarized incident wave is excited, as shown in Figure 2. It can be seen that the excited resonance state is similar to the odd-mode TM10 and TM30 of the microstrip patch antenna. Moreover, the resonant band width of the higher mode is narrow, and the reflection phase changes quickly, which is not suitable for realizing the broadband difference. The AMC design of this article will also focus on the TM10 mode. As shown in Figure 3, it is a simple and effective method to realize multi-point resonance in TM10 mode by combining multiple square patches of different sizes, such as a simple square double patch. However, due to size differences, the two patches will produce mutual coupling effect, affecting the resonant frequency and resonant phase of AMC, so the model needs to be optimized. By fine-tuning the $y_1$ and $y_2$ size of the optimized square double patch structure, two AMC units with staggered resonant frequency points are constructed to realize the wide-band $180^\circ$ reflection phase difference under the irradiation of Y-polarized incident waves. The RCS reduction of the Y-polarized incident wave can be realized by arranging two AMC elements along the Y-axis. Considering the case of incident X-polarized waves, we need to introduce a new structure. Complex structures are easy to introduce higher-order modes and break the smooth reflection phase curve. Therefore, we chose a simple cross structure to construct the body of the radiation patch, as shown in Figure 3(c).
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig2}
+	\caption{Electric field intensity distribution at high and low frequency resonance points.}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig3}
+	\caption{Evolution of AMC unit design. (a) Square single patch. (b) Square double patch optimization. Before optimization(left). After optimization(right). (c) Cross structure patch. }
+\end{figure}
+
+
+The two element structures of the cylindrical conformal low scattering array antenna designed in this paper are shown in Figure 4. The dielectric layer adopts a flexible F4B material with a relative dielectric constant of 2.2 and a thickness of h2. Below the medium layer is the air layer, the thickness of which is h1, and the thickness of the air layer is also the distance between the floor and the medium plate. The advantages of this design are that the dielectric layer is flexible and easy to conformal, and the loaded air layer reduces the Q value of the antenna and expands the bandwidth of the antenna.
+
+
+At the same time, two parallel branches are added in the X-axis direction, one branch is used to adjust the reflection phase of the antenna unit, and the other branch is connected to the coaxial inner core, and the main patch is coupled and fed through the gap. The coupling feed is chosen to increase the capacitance of the antenna to offset the sensitivity between the radiant surface and the floor, so as to obtain better matching characteristics and wider bandwidth. The specific parameter values of the unit are shown in Table 1.
+\begin{table} [!ht]
+	\centering
+	\caption{Low scatter scan array antenna two-element size.(mm)}
+	\begin{tabular}{cccccccccccccc}
+		        &$a_1$  &$b_1$  &$h_1$ &$h_2$ &$x_{a1}$ &$x_{a2}$ &$x_{a3}$ &$x_{a4}$ &$y_{a1}$ &$y_{a2}$  &$y_{a3}$ &$y_{a4}$	\\ \midrule
+		cell 1 	&16 	&14 	&2.5    &0.254 &10 &2 &1 &0.5 &6.8 &7.5 &3.5 &12 	\\
+		\hline
+		cell 2	&16	    &14 	&2.5    &0.254 &10 &2 &1 &0.5 &6.8 &12 &3.5 &13.2			\\
+	\end{tabular}
+	\label{tab:Table1}
+\end{table}
+
+
+Fig. 5 shows the reflection phase curve and the phase difference between the two elements under the vertical irradiation of the polarized incident wave. The $180\pm37^\circ$ phase difference ranges from 7.8 GHz to 12.6 GHz, covering the entire X-band and also covering the operating bands of the two antennas. The single-station RCS reduction under the vertical incidence of polarized incident wave can be realized by placing the two units along the axial direction.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig4}
+	\caption{Low scattering scanning array antenna cells. (a) 3D drawing. (b) Top view.}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig5}
+	\caption{The reflection phase curve and phase difference of two cells for y polarization incident wave.}
+\end{figure}
+
+
+Next, we start to design the cylindrical conformal array. The array designed in this paper is planned to be conformal on a cylindrical plane with a radius of 100 mm and a height of 100 mm, and has good scanning ability on the pitch plane and azimuth plane and low scattering characteristics covering the X-band. The meta design is optimized for both radiation and scattering requirements. Firstly, a flexible F4B dielectric material with a relative dielectric constant of 2.2 and a thickness of 0.254mm is used to load the dielectric structure of the air layer. The patch size of the microstrip antenna working at 10 GHz under that structure is about 10 mm. Secondly, the array is required to have a larger beamwidth in the pitch plane. For microstrip antennas, a wider beamwidth can be achieved by reducing the length of the radiating edge. The long side of the antenna, that is, the parallel side of the polarization direction, is conformal on the cylinder along the circumferential direction, and the large-angle scanning of the pitch plane can be realized by using the H-plane wide-beam characteristics of the antenna. At the same time, when the array element arrangement is larger than half wavelength, high sidelobe will appear in the array pattern, and the spacing is too close, which will cause the coupling between the array elements to be too large. The array element spacing should be designed at about half wavelength. The side of the AMC unit parallel to the y axis will be the axis of the cylinder, and the side parallel to the x axis will be bent, and the reference plane of the reflection phase generated by the patch arranged along the x axis will be inconsistent, which needs to be considered in the design. At the same time, it is necessary to increase the adjusting reflection phase branches to be closer to the main body of the radiation and farther away from the other element in the X-axis direction, so as to ensure the coupling effect within the element and reduce the coupling effect between the elements, and reduce the influence of conformal on the scattering performance.
+
+
+Taking the above factors into consideration, a cylindrical conformal array with a scale of 6$\times$6 is finally designed, as shown in Figure 6, with a cylindrical curvature radius of 100 mm and a quarter cylindrical surface with a height of 100 mm. The upper part of the 3$\times$6 is composed of antenna unit 1, and the lower part of the 3$\times$6 is composed of antenna unit 2. At the same time, considering the influence of truncation effect on the radiation performance of the array, only the central 4$\times$4 port is fed, and 20 surrounding units are used as passive units. The period of the metasurface is extended while the truncation effect of the array is optimized, and the phase cancellation characteristic of the AMC is guaranteed. The diagram of array port arrangement is shown in Fig. 6(c). In order to maximize the radiation gain of the array in the xoz azimuth plane, phase compensation is also required for the pair.
+
+
+Eight units 8, 9, 10, 11, 14, 15, 16, 17 were selected from the 16 units in the center of the array for analysis, and the remaining units were symmetrically distributed. Figure 7 shows the active standing wave ratio of eight units. It can be seen from the figure that the active standing wave ratio of all units in the band range of 8.78--11.17GHz is less than 2, and the results show that the array has a relative operating bandwidth of 23.9\%.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig6}
+	\caption{Schematic diagram of cylindrical conformal array and its port arrangement. (a) 3D drawing. (b) Top view. (c) Port layout diagram.}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig7}
+	\caption{Active VSWR of array units.}
+\end{figure}
+
+
+\subsection*{A. Array scattering characteristic}
+Fig. 8 shows the variation curve of RCS of the array under the irradiation of horizontally polarized and vertically polarized incident waves and the reduction of RCS under the condition of bi-polarized incident waves. It can be seen that the scattering characteristics of the array under the irradiation of the vertically polarized incident wave maintain three low scattering peaks, and RCS reduction of more than 20 dB can be achieved at 8.3 GHz, 9.3 GHz and 12.9 GHz, but the peak frequency shift is large under the influence of cylindrical conformal and array coupling. However, the overall array can achieve RCS reduction of more than 6 dB in 7.65 GHz--14.05 GHz, and the relative bandwidth is 58.9\%, covering the entire X-band. The low scattering performance of horizontal polarization mainly depends on the absorption of the mode term of the incident wave of the same polarization by the antenna unit. The frequency band of low scattering corresponds to the height of the working frequency band of the antenna. The RCS reduction of the array can be achieved above 6 dB in 8.15 GHz--13.45 GHz, and the relative bandwidth is 49.1\%. At the same time, RCS decreases by more than 5 dB in 8 GHz to 8.15 GHz. In summary, the results show that the array has good RCS reduction performance for arbitrary polarization in the whole X-band.
+\begin{figure}[htbp]
+	\centering
+	\subfigure[]{
+	\begin{minipage}[b]{.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{fig8a}
+	\end{minipage}
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig8b}
+		\end{minipage}	
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig8c}
+		\end{minipage}
+	}
+	\caption{Single station RCS and its RCS reduction under different polarization incident wave irradiation of array. (a) Vertically polarized incident wave. (b) Horizontally polarized incident wave. (c) RCS reduction of incident wave with different polarization.}
+\end{figure}
+
+
+\subsection*{B.	Array scanning performance}
+The main polarization and cross-polarization radiation directions of cylindrical conformal array under different frequency points are shown in Figure 9. The E plane of the cylindrical conformal array is xoy plane, and the H plane is xoz plane. As can be seen from Fig. 9(a), (c) and (e), when the antenna array operates at 9 GHz, 10 GHz and 11 GHz, the principal radiation direction of the main polarization on the H-plane is all in the direction, and the peak gain of the main polarization is 14.91dBi, 16.58dBi and 17.84dBi, respectively. The half-power beam widths were $32.24^\circ$, $27.13^\circ$ and $22.99^\circ$, respectively. As can be seen from Fig. 9(b), (d) and (f), the main radiation directions of plane E are slightly different at different frequencies. At 9 GHz, 10 GHz and 11 GHz, the main radiation directions are in $\phi=-2^\circ$, $\phi=-2^\circ$  and $\phi=0^\circ$, respectively, and the slight deviation is caused by the asymmetric distribution of feed points on the cylinder. The peak gain at each frequency was 14.97dBi, 16.58dBi and 17.84dBi, and the half-power beam width was $29.01^\circ$, $25.17^\circ$ and $21.42^\circ$, respectively.
+\begin{figure}[htbp]
+	\centering
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig9a}
+		\end{minipage}
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig9b}
+		\end{minipage}	
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig9c}
+		\end{minipage}
+	}
+		\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig9d}
+		\end{minipage}
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig9e}
+		\end{minipage}	
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig9f}
+		\end{minipage}
+	}
+	\caption{The main polarization and cross polarization radiation directions of cylindrical conformal array under different frequency points. (a) Array H-plane orientation at 9 GHz. (b) Array E-plane orientation at 9 GHz. (c) Array H-plane orientation at 10 GHz. (d) Array E-plane orientation at 10 GHz. (e) Array H-plane orientation at 11 GHz. (f) Array E-plane orientation at 11 GHz.}
+\end{figure}
+\begin{figure}[htbp]
+	\centering
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig10a}
+		\end{minipage}
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig10b}
+		\end{minipage}	
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig10c}
+		\end{minipage}
+	}
+	\caption{Scanning direction diagram of cylindrical conformal array in xoy plane. (a) 9 GHz array azimuth scanning pattern. (b) 10 GHz array azimuth scanning pattern. (c) 11 GHz array azimuth scanning pattern.}
+\end{figure}
+\begin{figure}[htbp]
+	\centering
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig11a}
+		\end{minipage}
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig11b}
+		\end{minipage}	
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig11c}
+		\end{minipage}
+	}
+	\caption{Scanning direction diagram of cylindrical conformal array on xoz plane. (a) Scan pattern in the array pitch plane on 9 GHz. (b) Scan pattern in the array pitch plane on 10 GHz. (c) Scan pattern in the array pitch plane on 11 GHz.}
+\end{figure}
+
+
+When the cylindrical conformal array is scanned on the xoy plane, its scanning direction diagram at 9 GHz, 10 GHz and 11 GHz is shown in Figure 10. As can be seen from the figure, when the array is scanned in the circular direction, the gain decreases gradually with the increase of the scanning Angle. At 9 GHz and 10 GHz, the peak gain of the pattern of scanning angles decreases by about 2 dB; At 11 GHz, the peak gain of the pattern at the scan Angle decreases by about 3dB. The array operating band has the above scanning capability in xoy plane, and the azimuth plane scanning characteristics are good.
+
+
+When the cylindrical conformal array is scanned on the xoz plane, its scanning direction diagram at 9 GHz, 10 GHz and 11 GHz is shown in Figure 11. The figure shows that when the array lateral shoot, gain the highest when the beam pointing in the $\theta=90^\circ$ direction, when the beam scanning in both sides, the gain decreases; At 9 GHz, the peak gain is 14.91dBi, and the beam scanning range is $42^\circ$--$138^\circ$ when the gain drops 3dB. At 10 GHz, the peak gain is 16.58dBi, and the beam scanning range is $45^\circ$--$135^\circ$ when the gain drops 3dB. At 11 GHz, the peak gain is 17.84dBi, with a 3 dB gain scanning range of $50^\circ$ to $130^\circ$ due to the unit's narrower beamwidth. In the operating band of the array, the xoz plane has a scanning capability above $\pm40^\circ$, and the pitching plane has good scanning characteristics.
+
+
+In summary, after phase compensation, the designed cylindrical conformal array is narrower than the unit in the operating frequency band. However, it can achieve good scanning ability in the pitch plane and azimuth plane in the band, and the array has low scattering characteristics covering the X-band, and the comprehensive performance is good.
+\section{Experimental verification and discussion} 	
+Next, the cylindrical conformal low scattering array antenna was tested. The reflection coefficient, direction diagram and RCS of the array were mainly tested. Rf connection lines and power splitters were used to feed the antenna. The overall structure after assembly and welding was shown in Figure 12.
+
+
+Fig. 14. shows the reflection coefficient and scattering test results of the designed conformal array. It can be seen from the reflection coefficient diagram that the reflection coefficient of the array is less than -10 dB in 9--11 GHz, which preliminarily verifies the matching characteristics of the conformal antenna array. And because the array is connected to the feed through an impedance matching power division circuit, the overall impedance characteristics of the antenna array are improved. Compared with the RCS curves of the array test and simulation, there is a slight deviation but the trend is basically the same, which verifies the low scattering characteristic of the cylindrical conformal array.
+
+
+Fig. 13. shows the radiation test results of the designed conformal array, and compares the test and simulation results of the normalized pattern of E-plane and H-plane of the array at the three frequency points of 9 GHz, 10 GHz and 11 GHz. The two are almost identical, which verifies the radiation characteristics of the cylindrical conformal array.
+
+
+Table 2 shows the comparison between this design and other projects. The antenna array proposed in this paper has the largest RCS reduction and the widest RCS reduction bandwidth. In addition, it also has good scanning performance.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig12}
+	\caption{Cylindrical conformal low scattering array antenna machining test object. }
+\end{figure}
+\begin{figure}[htbp]
+	\centering
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig13a}
+		\end{minipage}
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig13b}
+		\end{minipage}	
+	}
+	\caption{{Overall reflection coefficient of array. (b) Scattering test results of conformal scanning array.}
+\end{figure}
+\begin{figure}[htbp]
+	\centering
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig14a}
+		\end{minipage}
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig14b}
+		\end{minipage}	
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig14c}
+		\end{minipage}
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig14d}
+		\end{minipage}
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig14e}
+		\end{minipage}	
+	}
+	\subfigure[]{
+		\begin{minipage}[b]{.4\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{fig14f}
+		\end{minipage}
+	}
+	\caption{Radiation test results of conformal scanning array. (a) Array E-plane orientation at 9 GHz. (b) Array H-plane orientation at 9 GHz. (c) Array E-plane orientation at 10 GHz. (d) Array H-plane orientation at 10 GHz. (e) Array E-plane orientation at 11 GHz. (f) Array H-plane orientation at 11 GHz.}
+\end{figure}
+\begin{table} [!ht]
+	\centering
+	\caption{Comparison of scanning array antennas}
+	\begin{tabular}{cccccc}
+		Ref  &Operating bandwidth &RCS reduction &RCS reduces bandwidth &Scan (Maximal active VSWR) &Conformal	\\ \midrule
+		\cite{p26} 	&7.5--10.8GHz 	&>3dB 	&12--16GHz    &$\pm60^\circ$(3.0) &No	\\
+		\hline
+		\cite{p27}	&2.6--3.4GHz	&>5dB 	&2.75--3.25GHz    &$\pm45^\circ$(2.5) &No		\\
+		\hline
+		\cite{p28}  &2--18GHz       &>3dB   &4--9GHz          &$\pm60^\circ$(4.8) &Yes   \\
+		\hline
+		This work   &8.78--11.17GHz &>6dB   &8.0--13.45GHz    &$\pm40^\circ$(2.0) &Yes   \\
+	\end{tabular}
+	\label{tab:Table2}
+\end{table}
+\section{Conclusion}
+Based on the application requirement of conformal array in high performance aircraft antenna system, this paper studies the typical cylindrical conformal array antenna platform. According to the requirement of single-station RCS reduction of conformal array antenna, combined with the principle of electromagnetic metasurface to realize low scattering cancellation and absorption, the low scattering characteristics of the array are realized on the basis of guaranteeing the radiation characteristics of the cylindrical conformal array.
+
+
+According to the requirements of cylindrical conformal scanning array, two wideband antenna units are designed in this paper. The phase broadband of polarization reflection of the two units is maintained at $180^\circ\pm37^\circ$. Considering the size of the element and the scanning capability of the array, the two antenna elements are composed of a 6$\times$6 cylindrical conform array, which realizes the good scanning capability of the array in the pitch plane and the azimuth plane and the low scattering characteristic of the incident wave with different polarization. The experimental samples are processed and tested. The results show that the working bandwidth of the designed array antenna ranges from 8.78GHz to 11.17GHz, and the relative bandwidth is 23.9\%. The low scattering bandwidth ranges from 8.0 GHz to 13.45 GHz, covering the entire X-band. At 9 GHz and 10 GHz, the array has a sweep performance of $\pm45^\circ$ above the pitch surface. At 11 GHz, the array has a scan performance of $\pm40^\circ$ on the pitch surface.
+\begin{thebibliography}{99}
+%Please refer to the journal's website for the corresponding reference style.
+
+% -- Articles in journals    -- %
+\bibitem{p1}
+S. Mohammadi, A. Ghani and S. H. Sedighy, "Direction-of-Arrival Estimation in Conformal Microstrip Patch Array Antenna," \emph{IEEE Trans.  Antennas Propag.}, vol. 66, no. 1, pp. 511--515, Jan. 2018.
+
+% -- Articles ahead of print -- %
+\bibitem{p2}
+Z. Ding, J. Chen, H. Zhou, X. Liang and R. Jin, "High Aperture Efficiency Arced Conformal Array With Phasor Beam Steering Antenna," \emph{IEEE Trans. Antennas Propag.}, vol. 71, no. 1, pp. 596-605, Jan. 2023.
+
+% -- Accepted articles       -- %
+\bibitem{p3}
+H. Yang, X. Liu and Y. Fan, "Design of Broadband Circularly Polarized All-Textile Antenna and Its Conformal Array for Wearable Devices," \emph{IEEE Trans. Antennas Propag.}, vol. 70, no. 1, pp. 209-220, Jan. 2022.
+
+\bibitem{p4}
+H. S. Lin, Y. J. Cheng, Y. F. Wu and Y. Fan, "Height Reduced Concave Sector-Cut Spherical Conformal Phased Array Antenna Based on Distributed Aperture Synthesis," \emph{IEEE Trans.  Antennas Propag.}, vol. 69, no. 10, pp. 6509-6517, Oct. 2021.
+
+\bibitem{p5}
+S. Yu, N. Kou, J. Jiang, Z. Ding and Z. Zhang, "Beam Steering of Orbital Angular Momentum Vortex Waves With Spherical Conformal Array," \emph{IEEE Antennas Wireless Propag. Lett.} , vol. 20, no. 7, pp. 1244-1248, July 2021.
+
+\bibitem{p6}
+B. Zhang et al., "Ultra-Wide-Scanning Conformal Heterogeneous Phased Array Antenna Based on Deep Deterministic Policy Gradient Algorithm," \emph{IEEE Trans.  Antennas Propag.}, vol. 70, no. 7, pp. 5066-5077, July 2022.
+
+\bibitem{p7}
+S. Xiao, S. Yang, H. Zhang, Q. Xiao, Y. Chen and S. -W. Qu, "Practical Implementation of Wideband and Wide-Scanning Cylindrically Conformal Phased Array," \emph{IEEE Trans.  Antennas Propag.}, vol. 67, no. 8, pp. 5729-5733, Aug. 2019.
+
+\bibitem{p8}
+S. Huang et al., "A Wideband L-Probe Fed Conformal Antenna Array Using Metasurface," \emph{IEEE Open J. Antennas Propag.}, vol. 2, pp. 1175-1183, 2021.
+
+\bibitem{p9}
+P. Knott, "Antenna design and beamforming for a conformal antenna array demonstrator," \emph{2006 IEEE Aerospace Conference}, Big Sky, MT, USA, 2006.
+
+\bibitem{p10}
+H. Schippers et al., "Conformal phased array with beam forming for airborne satellite communication," \emph{Int. ITG Workshop Smart Antennas}, Darmstadt, Germany, pp. 343-350, 2008.
+
+\bibitem{p11}
+D. Sun, W. Dou and L. You, "Application of Novel Cavity-Backed Proximity-Coupled Microstrip Patch Antenna to Design Broadband Conformal Phased Array," \emph{IEEE Antennas Wireless Propag. Lett.}, vol. 9, pp. 1010-1013, 2010.
+
+\bibitem{p12}
+B. D. Braaten, S. Roy, I. Irfanullah, S. Nariyal and D. E. Anagnostou, "Phase-Compensated Conformal Antennas for Changing Spherical Surfaces," \emph{IEEE Trans.  Antennas Propag.}, vol. 62, no. 4, pp. 1880-1887, April 2014.
+
+\bibitem{p13}
+V. Jaeck et al., "A Switched-Beam Conformal Array With a 3-D Beam Forming Capability in C-Band," \emph{IEEE Trans.  Antennas Propag.}, vol. 65, no. 6, pp. 2950-2957, June 2017.
+
+\bibitem{p14}
+LIU X M, HUA Y C, FU Y X, et al. Research Progress of Radar Absorbing Materials [J] Materials China, 2023, 42(9): 685-698.
+
+\bibitem{p15}
+HAN Minyang, WEI Guoke, ZHOU Ming, et al. Research progress of low-frequency radar absorbents[J]. \emph{Acta Materiae Compositae Sinica}, 2022, 89(4): 1363-1377.
+
+\bibitem{p16}
+Jia yongtao, Liu ying. Modified region determination method and low scattering profile Vivaldi array antenna separation based on scattering:CN202310207727.6[P]. 2023-07-14.
+
+\bibitem{p17}
+Zhang jiakai. The invention relates to an L-band low-RCS microstrip antenna based on antenna modification technique:CN202211501617.2[P]. 2023-04-18.
+
+\bibitem{p18}
+J. Tu and C. Li, "The Design of the Conformal Electromagnetic Stealth Meta-surface for Arbitrary NURBS Curved Surfaces," \emph{2020 6th Global Electromagnetic Compatibility Conference}, XI'AN, China, 2020, pp. 1-4.
+
+\bibitem{p19}
+N. Fadhillah, L. O. Nur, Sulistyaningsih, W. Desvasari, N. Lestari and A. Munir, "Design and Realization of AMC-Based Tunable Multi-Band Microstrip Antenna," \emph{2020 14th International Conference on Telecommunication Systems, Services, and Applications}, Bandung, Indonesia, 2020, pp. 1-4.
+
+\bibitem{p20}
+Z. Xing, F. Yang, P. Yang, J. Yang and C. Jiang, "A Novel High-Performance FSS-AMC Radome Unit," \emph{2020 IEEE International Symposium on Antennas and Propagation and North American Radio Science Meeting}, Montreal, QC, Canada, 2020, pp. 777-778.
+
+\bibitem{p21}
+LAN Junxiang, "A novel low-scattering microstrip antenna array design," \emph{Acta Phys. Sin.}, vol. 68, no. 3 ,2019.
+
+\bibitem{p22}
+Y. Liu, Y. Jia, W. Zhang, Y. Wang, S. Gong and G. Liao, "An Integrated Radiation and Scattering Performance Design Method of Low-RCS Patch Antenna Array With Different Antenna Elements," \emph{IEEE Trans.  Antennas Propag.}, vol. 67, no. 9, pp. 6199-6204, Sept. 2019.
+
+\bibitem{p23}
+Liu Tao, "Design of wideband low RCS metasurface array," \emph{Journal of Electronics \& Information Technology}, vol. 41, no.9, Sept. 2019.
+
+\bibitem{p24}
+Hao Biao, " Design of a coded metasurface antenna array with low radar scattering cross section," \emph{Acta Phys. Sin.}, vol. 69, no. 24 ,2020.
+
+% -- Preprints               -- %
+\bibitem{p25}
+Hao Biao, " Design of low RCS patch antenna array based on integrated radiation scattering technology," \emph{Journal of the Air Force Engineering University}, vol. 21, no.4, Aug. 2020.
+
+% -- Books and Monographs    -- %
+\bibitem{p26}
+Y. -F. Cheng, J. Feng, C. Liao and X. Ding, "Analysis and Design of Wideband Low-RCS Wide-Scan Phased Array With AMC Ground," \emph{IEEE Antennas Wireless Propag. Lett.}, vol. 20, no. 2, pp. 209-213, Feb. 2021.
+
+% -- Contributions           -- %
+\bibitem{p27}
+Z. Zhang, S. Yang, F. Yang, Y. Chen, S. -W. Qu and J. Hu, "Low-Scattering Phased Arrays With Reconfigurable Scattering Patterns Based on Independent Control of Radiation and Scattering," \emph{IEEE Trans.  Antennas Propag.}, vol. 71, no. 6, pp. 5057-5066, June 2023.
+
+% -- Thesis           			-- %
+\bibitem{p28}
+J. X. Sun, Y. J. Cheng, Y. F. Wu and Y. Fan, "Ultrawideband, Low-Profile, and Low-RCS Conformal Phased Array With Capacitance-Integrated Balun and Multifunctional Meta-Surface," \emph{IEEE Trans.  Antennas Propag.}, vol. 70, no. 9, pp. 7448-7457, Sept. 2022.
+
+\end{thebibliography}
+\end{document}
